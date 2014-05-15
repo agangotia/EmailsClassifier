@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-#print ("Hello World") 
+#This Script is used to create the test cases or train cases from articles in the form of given email(.eml) file provided
 
 #name of file to read structure from 
 FileStructure="SampleFile.eml"
