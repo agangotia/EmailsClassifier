@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Emailsclassifier by agangotia</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Emailsclassifier</h1>
+          <h2>Email Classifier based on supervised Machine Learning (NBTree and Multinomial Naive bayes Implementation)</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/agangotia/EmailsClassifier/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/agangotia/EmailsClassifier/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/agangotia/EmailsClassifier" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h3>
+<a name="what-the-hack-is-this-" class="anchor" href="#what-the-hack-is-this-"><span class="octicon octicon-link"></span></a>What the hack is this ?</h3>
+
+<p>This is a Java Program, which can predict the class of an email.<br>
+Classes predicted are {Spam,Sports,Business,Technology,Entertainment}.
+For more details read :</p>
+
+<ul>
+<li>Project Description (In .docx)</li>
+<li>Final Report (In .docx)</li>
+<li>The Plan (In .docx)</li>
+</ul><h3>
+<a name="how-it-works" class="anchor" href="#how-it-works"><span class="octicon octicon-link"></span></a>How it works</h3>
+
+<p>Step 1: Read the training emails.<br>
+Step 2: Text Pre-processing.  </p>
+
+<ul>
+<li>Tokenization using Stanford Parser.(Need to decide which parts of speech to be taken).<br>
+</li>
+<li>Stop word removal. : to remove words such as “a”, “the”, “I”, “he”, “she”, “is”, “are”, etc.<br>
+</li>
+<li>Normalize words. : Stanford Lemma.<br>
+</li>
+<li>Then make instance based on top K term frequency.</li>
+</ul><p>Step 3: Training  </p>
+
+<ul>
+<li>Design NBTree – Hybrid Decision Tree Naïve baiyes classifier.<br>
+</li>
+<li>Train input on this, along with a Test Instance.<br>
+</li>
+<li>Predict the category. </li>
+</ul><p>The source code also contains the implementation of custom designed NBTree &amp; custom multinomial Naive Bayes. </p>
+
+<h3>
+<a name="why-nbtree-" class="anchor" href="#why-nbtree-"><span class="octicon octicon-link"></span></a>Why NBTree ?</h3>
+
+<pre><code>Model used is NBTree.
+Problem How can we generate a classifier from an arbitrarily sized database of labeled instances, where attributes
+are not necessarily independent?
+Solutions
+1 Naive-Bayes Classifiers (Cons: Assumes independence of attributes)
+2 Decision-Trees (C4.5)(Cons: Fragmentation as number of splits becomes large)
+3 NBTree
+  * Many attributes are relevant for classification
+  * Attributes are not necessarily independent
+  * Database is large
+  * Interpretability of classifier is important
+
+Refrences:
+R. Kohavi.
+"Scaling Up the Accuracy of Naive-Bayes Classifiers: a Decision-Tree Hybrid"
+
+</code></pre>
+
+<h3>
+<a name="build-information" class="anchor" href="#build-information"><span class="octicon octicon-link"></span></a>Build Information</h3>
+
+<pre><code>Very Imp : Please Download "stanford-corenlp-3.3.1-models.jar"(http://nlp.stanford.edu/software/stanford-corenlp-full-2014-01-04.zip) As i was not able to upload this jar, because of size limit. Download and copy it inside lib folder. Then you should be able to Build this project,
+</code></pre>
+
+<p>There are two ways to run :
+1. In ecclipse -
+a).Import the folder "HybridEmailClassifier", inside ecclipse.<br>
+b).To do this, inside package explorer of eclipse right click and select import.<br>
+c).Under General , select existing Projects into workspace.<br>
+d).do check copy projects into existing workspace.<br>
+e).Once the project is imported, right click project and click on "Run configuration" inside Run as options.<br>
+f).In the arguments tab, make sure your are passing "production" as Program Arguments.<br>
+g).Finally run the com.anupam.hybrid.HybridMain class. This has the main method.  </p>
+
+<ol>
+<li>Using Ant -
+a).You should have ant installed and configured.<br>
+b).Open cmd prompt.<br>
+c).cd to folder "HybridEmailClassifier".<br>
+d).compile the source code by simply typing ant in cmd prompt.<br>
+e).This compiles the files and generates a folder "build".<br>
+f).Now run the program by typing ant HybridMain.<br>
+</li>
+</ol>
+        </section>
+
+        <footer>
+          Emailsclassifier is maintained by <a href="https://github.com/agangotia">agangotia</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
